@@ -1,0 +1,42 @@
+.main-footer {
+	background: $dark;
+	height: 40rem;
+	color: set-text-color($dark);
+	margin: -3rem 0;
+	font-size: 1.5rem;
+	width: 100%;
+}
+
+.footer {
+	&__logo {
+		padding: 5rem 0;
+		height: auto;
+		&-img {
+			display: block;
+			margin: 0 auto;
+			width: 15%;
+		}
+	}
+	&__menu {
+		display: flex;
+		justify-content: space-between;
+		&-list {
+			font-size: 1.5rem;
+			margin-left: 5%;
+			padding: 0 1rem;
+			ul {
+				list-style: none;
+				display: flex;
+				li {
+					padding: 0 1rem;
+					a {
+						color: inherit;
+					}
+				}
+			}
+		}
+		&-credit {
+			flex: 0 1 50%;
+		}
+	}
+}

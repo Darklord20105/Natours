@@ -1,0 +1,77 @@
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	background: rgba($dark-color, 0.9);
+	width: 100vw;
+	height: 100vh;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 9999;
+	transition: all 0.8s;
+	@supports (-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)) {
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
+	}
+
+	&-window {
+		width: 75%;
+		height: 55%;
+		background: #f4f4f4;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&-content {
+		@include sidebyside;
+		grid-template-columns: 1fr 3fr;
+		grid-gap: 2rem;
+		h2 {
+			color: $primary-color-medium;
+			font-size: 3rem;
+			line-height: 3rem;
+			padding-bottom: 3rem;
+		}
+
+		&__img {
+			width: 100%;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		&__text {
+			padding: 4rem;
+			position: relative;
+
+			p {
+				display: block;
+				font-size: 1.2rem;
+				line-height: 2rem;
+				column-count: 2;
+				column-gap: 2rem;
+				column-rule: 1px solid rgba($dark-color, 0.5);
+				padding-bottom: 4rem;
+			}
+		}
+	}
+}
+
+.exit {
+	font-size: 3rem;
+	position: absolute;
+	right: 3rem;
+	top: 3rem;
+}
+
+#section-tours:target .popup {
+	display: none;
+}
+
+#popup:target {
+	visibility: visible;
+	opacity: 1;
+}

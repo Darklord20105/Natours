@@ -1,0 +1,175 @@
+.navigation {
+	&__checkbox {
+		position: fixed;
+		top: 8rem;
+		right: 8rem;
+		width: 3rem;
+		height: 3rem;
+	}
+
+	&__button {
+		width: 7rem;
+		height: 7rem;
+		position: fixed;
+		top: 6rem;
+		right: 6rem;
+		border-radius: 50%;
+		background: #fff;
+		z-index: 3000;
+		text-align: center;
+		cursor: pointer;
+
+		// cuz our humburger is a span we can use text-align to center it
+	}
+
+	&__background {
+		width: 6rem;
+		height: 6rem;
+		position: fixed;
+		top: 6.5rem;
+		right: 6.5rem;
+		border-radius: 50%;
+		background: radial-gradient($primary-color-light, $primary-color-dark);
+		z-index: 1000;
+		transition: all .8s;
+		visibility: hidden;
+
+		// this item represents the huge background when clicking on our nav circle
+		// another thing to give the background a cool look we use radial-gradient but now we'll stick with only color
+	}
+
+	&__nav {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 2000;
+		transition: all .4s;
+
+		// to hide the navigation links we use opacity but this has a draw-back issue that link items will still exist so we set the width 0
+		visibility: hidden;
+		opacity: 0;
+		width: 0;
+
+		transition: all .8s cubic-bezier(0.86, 0, 0.07, 1);
+	}
+
+	//pisitiong link list
+
+	&__list {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		list-style: none;
+		text-align: center;
+		width: 100%;
+	}
+
+	// styling nav links
+
+	&__item {
+		margin: 1rem;
+		padding: 1rem;
+	}
+
+	&__link {
+		&:link,
+		&:visited {
+			display: inline-block;
+			font-size: 3rem;
+			font-weight: 300;
+			color: $light-color;
+			padding: 1.5rem 2.5rem;
+			text-decoration: none;
+			text-transform: uppercase;
+			background: linear-gradient(120deg, transparent 50%, transparent 50%, rgba($light-color, 0.7) 50%);
+			background-size: 220%;
+			transition: all .4s;
+		}
+		&:hover,
+		&:active {
+			background-position: 100%;
+			color: $primary-color-light;
+			transform: translatex(1rem);
+		}
+	}
+	// functionality
+
+	&__checkbox:checked ~ &__background {
+		transform: scale(100);
+		visibility: visible;
+	}
+
+	&__checkbox:checked ~ &__nav {
+		opacity: 1;
+		visibility: visible;
+		width: 100%;
+	}
+	//icon design
+	&__icon {
+		position: relative;
+		margin-top: 3.5rem;
+
+		&,
+		&::before,
+		&::after {
+			width: 3rem;
+			height: 2px;
+			background: $dark-color;
+			display: inline-block;
+		}
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			transition: all 0.3s;
+		}
+
+		&::before {
+			top: -0.8rem;
+		}
+		&::after {
+			top: 0.8rem;
+		}
+	}
+
+	&__button:hover &__icon::before {
+		top: -1rem;
+	}
+	&__button:hover &__icon::after {
+		top: 1rem;
+	}
+
+	&__checkbox:checked + &__button &__icon {
+		background: transparent;
+	}
+
+	&__checkbox:checked + &__button &__icon::before {
+		top: 0;
+		transform: rotate(135deg);
+	}
+
+	&__checkbox:checked + &__button &__icon::after {
+		top: 0;
+		transform: rotate(-135deg);
+	}
+}
+
+@include respond(phone) {
+	.navigation {
+		&__checkbox {
+			top: 6rem;
+			right: 6rem;
+		}
+		&__button {
+			top: 3rem;
+			right: 3rem;
+		}
+		&__background {
+			top: 3.5rem;
+			right: 3.5rem;
+		}
+	}
+}

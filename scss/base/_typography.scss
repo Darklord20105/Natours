@@ -1,0 +1,67 @@
+.primary-heading {
+	text-align: center;
+	font-size: 4rem;
+	line-height: 5rem;
+	letter-spacing: 2rem;
+	position: absolute;
+	top: 36%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: movedown 2s ease-in;
+
+	@include respond(tab-port) {
+		font-size: 3.5rem;
+		letter-spacing: 1rem;
+	}
+	@include respond(phone) {
+		font-size: 3rem;
+		letter-spacing: 1rem;
+	}
+}
+.secondary-heading {
+	font-size: 2rem;
+	letter-spacing: 1rem;
+	font-weight: 100;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: movetoright 2s ease-in;
+
+	@include respond(tab-port) {
+		font-size: 1.5rem;
+		letter-spacing: normal;
+	}
+}
+
+.text-primary {
+	font-size: 3rem;
+	color: $primary-color-medium;
+	font-weight: 300;
+	line-height: 3rem;
+	text-align: center;
+
+	@include respond(tab-port) {
+		font-size: 2.5rem;
+		line-height: 2.5rem;
+	}
+	@include respond(phone) {
+		font-size: 3rem;
+		line-height: 3rem;
+	}
+}
+
+.text {
+	font-size: 3rem;
+	color: $primary-color-dark;
+	font-weight: 300;
+	padding: 2rem;
+
+	@include respond(tab-port) {
+		font-size: 2.5rem;
+	}
+	@include respond(phone) {
+		font-size: 2rem;
+		text-align: center;
+	}
+}

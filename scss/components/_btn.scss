@@ -1,0 +1,59 @@
+.btn {
+	@include btn-shared;
+
+	&-light {
+		background: $light-color;
+		color: #333;
+		&:hover {
+			background: $dark-color;
+			color: set-text-color($dark-color);
+		}
+	}
+	&-dark {
+		background: $dark-color;
+		color: #f4f4f4;
+		&:hover {
+			background: $light-color;
+			color: set-text-color($light-color);
+		}
+	}
+	&-main-light {
+		background: $primary-color-light;
+		color: #f4f4f4;
+		&:hover {
+			background: $primary-color-dark;
+			color: set-text-color($primary-color-dark);
+		}
+	}
+	&-main-dark {
+		background: $primary-color-medium;
+		color: #f4f4f4;
+		&:hover {
+			background: $primary-color-dark;
+			color: set-text-color($primary-color-dark);
+		}
+	}
+}
+.heading-btn {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: moveup 1s ease-in backwards 1s;
+}
+
+//
+
+.tours-btn {
+	display: block;
+	width: 20rem;
+	margin: 5rem auto;
+	cursor: pointer;
+	text-align: center;
+
+	@include respond(phone) {
+		transform: translateY(13rem);
+		font-size: 3rem;
+		padding: 3rem 5rem;
+	}
+}

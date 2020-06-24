@@ -1,0 +1,91 @@
+.testimonials {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	height: 55rem;
+	position: relative;
+
+	&__box {
+		height: 14rem;
+		background: rgba($light-color, 0.6);
+		transform: skewX(-30deg);
+		margin: 0 25%;
+		transition: all 0.4s;
+
+		@include respond(phone) {
+			transform: skewX(0);
+			margin: 0 13%;
+		}
+
+		&:hover h4 {
+			transform: translateY(-1.8rem);
+			opacity: 1;
+		}
+		&:hover &__img-1,
+		&:hover &__img-2 {
+			filter: blur(10px);
+		}
+
+		&-1 {
+			margin-bottom: 5rem;
+		}
+		&-2 {
+			margin-bottom: 5rem;
+		}
+	}
+	&__img {
+		width: 10rem;
+		height: 10rem;
+
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+
+		transform: skewX(30deg);
+		margin: 2rem 0 auto 3rem;
+		float: left;
+
+		@include respond(phone) {
+			transform: skewX(0);
+		}
+
+		&-1 {
+			background: url(../img/nat-8.jpg) center center/cover;
+			filter: none;
+			transition: all 0.8s;
+		}
+		&-2 {
+			background: url(../img/nat-9.jpg) center center/cover;
+		}
+
+		h4 {
+			font-size: 2rem;
+			text-align: center;
+			padding-top: 4.5rem;
+			opacity: 0;
+			transition: all 1s;
+			z-index: 5;
+			color: $light-color;
+		}
+	}
+	&__text {
+		transform: skewX(30deg) translateX(1rem);
+		width: 90%;
+
+		@include respond(phone) {
+			transform: skewX(0) translateX(1rem);
+		}
+
+		h3 {
+			padding: 2.5rem 0;
+			font-size: 1.8rem;
+		}
+		p {
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+///
+//
+.main-header {
+	display: block;
+
+	height: 90vh;
+	background: linear-gradient(to bottom right, rgba($primary-color-light, 0.9), rgba($primary-color-dark, 0.9)),
+		url('/dist/img/hero2.jpg');
+	background-size: cover;
+	background-position: top;
+	overflow: hidden;
+	position: relative;
+	text-transform: uppercase;
+	color: $light-color;
+	margin-bottom: 5rem;
+
+	@supports (-webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)) or (clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)) {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+	}
+
+	@include respond(tab-land) {
+		clip-path: none;
+	}
+	.logo {
+		position: absolute;
+		top: 3rem;
+		left: 3rem;
+
+		.logo-img {
+			width: 40%;
+		}
+	}
+}

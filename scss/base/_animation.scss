@@ -1,0 +1,30 @@
+@keyframes movedown {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -10rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(-50%, -50%);
+	}
+}
+@keyframes moveup {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, 3rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+}
+@keyframes movetoright {
+	0% {
+		opacity: 0;
+		transform: translate(-60%, -50%);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+}

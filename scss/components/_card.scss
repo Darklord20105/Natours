@@ -1,0 +1,171 @@
+.card {
+	height: 50rem;
+	margin: 5rem 0;
+	perspective: 150rem;
+	background: transparent;
+
+	@include respond(phone) {
+		height: 70rem;
+		margin: 15rem 0;
+	}
+
+	&__side {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: 0.8s all;
+		transform-style: preserve-3d;
+		backface-visibility: hidden;
+		box-shadow: 0 1.5rem 4rem #333;
+
+		&--front {
+			position: absolute;
+
+			@include respond(phone) {
+				z-index: 100;
+				background: $light-color;
+				clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+			}
+		}
+		&--back {
+			position: absolute;
+			color: #fff;
+			transform: rotateY(-180deg);
+
+			@include respond(phone) {
+				transform: none;
+				z-index: -1;
+				top: 30rem;
+			}
+
+			&-1 {
+				background: linear-gradient(to bottom right, $teritary-color-dark, $teritary-color-light);
+			}
+			&-2 {
+				background: linear-gradient(to bottom right, $primary-color-dark, $primary-color-light);
+			}
+			&-3 {
+				background: linear-gradient(to bottom right, $blue-dark-color, $blue-light-color);
+			}
+		}
+	}
+	&:hover &__side--front {
+		transform: rotateY(180deg);
+
+		@include respond(phone) {
+			transform: none;
+		}
+	}
+	&:hover &__side--back {
+		transform: rotateY(0deg);
+	}
+	// front side styling
+	&__picture {
+		height: 40%;
+		background-blend-mode: screen;
+		clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+
+		&--1 {
+			background: linear-gradient(to bottom right, $teritary-color-dark, $teritary-color-light),
+				url('../img/nat-5.jpg') top/cover;
+		}
+		&--2 {
+			background: linear-gradient(to bottom right, $primary-color-dark, $primary-color-light),
+				url('../img/nat-6.jpg') top/cover;
+		}
+		&--3 {
+			background: linear-gradient(to bottom right, $blue-dark-color, $blue-light-color),
+				url('../img/nat-7.jpg') top/cover;
+		}
+	}
+	&__heading {
+		font-size: 3.5rem;
+		line-height: 1;
+		width: 8rem;
+		position: absolute;
+		right: 9rem;
+		top: 15rem;
+		padding: 0.5rem 1.5rem;
+		color: #fff;
+
+		@include respond(phone) {
+			font-size: 3.5rem;
+			right: 8rem;
+		}
+
+		&-span {
+			display: inline-block;
+			box-decoration-break: clone;
+			-webkit-box-direction-break: clone;
+
+			&--1 {
+				background: linear-gradient(to bottom right, $teritary-color-dark, $teritary-color-light);
+			}
+			&--2 {
+				background: linear-gradient(to bottom right, $primary-color-dark, $primary-color-light);
+			}
+			&--3 {
+				background: linear-gradient(to bottom right, $blue-dark-color, $blue-light-color);
+			}
+		}
+	}
+
+	&__details {
+		font-size: 1.5rem;
+		text-align: center;
+		margin-top: 5rem;
+
+		@include respond(phone) {
+			font-size: 2.5rem;
+		}
+
+		li {
+			padding: 0.5rem;
+			margin: 1rem;
+
+			@include respond(phone) {
+				padding: 2rem;
+			}
+
+			&:not(:last-child) {
+				border-bottom: 3px solid #eee;
+			}
+		}
+	}
+
+	//back side styling
+	&__cta {
+		font-size: 3rem;
+		text-align: center;
+		margin-top: 60%;
+
+		.btn-light {
+			@include respond(phone) {
+				font-size: 2rem;
+			}
+		}
+
+		@include respond(phone) {
+			// font-size: 3rem;
+			margin-top: 80%;
+		}
+		@media screen and (max-width: 500px) {
+			margin-top: 100%;
+		}
+	}
+	&__price-only {
+		@include respond(phone) {
+			transform: translateY(-5rem);
+		}
+	}
+
+	&__price-value {
+		font-size: 6rem;
+		margin: 4rem 0 8rem 0;
+
+		@include respond(phone) {
+			font-size: 8rem;
+			margin: 3rem 0 8rem 0;
+		}
+	}
+}
